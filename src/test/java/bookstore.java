@@ -30,9 +30,9 @@ public class bookstore {
                 .header("accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body(requestBody)
-                .when()
+        .when()
                 .post(endpoint)
-                .then()
+        .then()
                 .log().all() // Log the entire response for debugging
                 .statusCode(201);
                 //.body("status", equalTo("Success"))
@@ -45,7 +45,7 @@ public class bookstore {
 
         // Request payload
        // String requestBody = "{ \"userName\":  \"" + randomUserName + "\", \"password\": \"S$tring1234\" }";
-        String requestBody = "{ \"userName\": \"soyKheaBro5\", \"password\": \"string$#asd1\" }";
+        String requestBody = "{ \"userName\": \"soyKheaBro7\", \"password\": \"String$#asd1\" }";
 
         // Perform the POST request and validate the response
         given()

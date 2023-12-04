@@ -5,7 +5,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class CRUDUsers {
 
     int id;
-    @Test
+    @Test(priority = 0)
     void getUsers(){
         given()
                 .when()
@@ -17,7 +17,18 @@ public class CRUDUsers {
         ;
 
     }
-    @Test
+    @Test(priority = 0)
+    void getInexistent(){
+        given()
+                .when()
+                .get("https://reqres.in/api/users/23")
+                .then()
+                .statusCode(404)
+                .log().all()
+        ;
+
+    }
+    @Test(priority = 1)
     void createUser() {
         JSONObject data = new JSONObject();
         data.put("name", "morpheus");
@@ -33,7 +44,7 @@ public class CRUDUsers {
     }
     //.statusCode (201)
     // .log().all();
-    @Test
+    @Test(priority = 2)
     void updateUser() {
         JSONObject data = new JSONObject();
         data.put("name", "morpheus");
@@ -48,7 +59,7 @@ public class CRUDUsers {
                 .statusCode(200)
                 .log().all();
     }
-    @Test
+    @Test(priority = 3)
     void deleteUser(){
         given ()
                 .when()
